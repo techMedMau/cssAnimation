@@ -1,0 +1,148 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(61, 93, 114);
+}
+
+.window {
+  overflow: hidden;
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border-radius: 100%;
+  background-color: #84b1d1;
+  border: 9px solid #000000;
+}
+
+.balloon {
+  position: absolute;
+  left: -70px;
+  top: 270px;
+  animation: balloon 7s linear infinite;
+}
+
+@keyframes balloon {
+  from {
+    transform: translate(300px, -300px) scale(0.5);
+  }
+  to {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+.birds{
+  position: absolute;
+  width:69px;
+  height: 69px;
+  left: 175px;
+  top: 190px;
+  animation-name: birds;
+  animation-duration: 1s;
+  background-image: url(/image/birds.png);
+  animation-timing-function: step-end;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+}
+
+@keyframes birds {
+  0%{background-position: -124 0;}
+  25%{background-position: -255px 0;}
+  50%{background-position: -395px 0;}
+  75%{background-position: -460px 0;}
+  100%{background-position: -520px 0;}
+}
+
+/* .bird {
+  position: absolute;
+  left: 165px;
+  top: 130px;
+  transform: scale(1) translate(0, 0);
+  transition: all 4s;
+}
+
+.bird:hover {
+  transform: scale(0.3) translate(130px, -75px);
+} */
+
+.sun {
+  position: absolute;
+  top: 30px;
+  left: 10px;
+  animation: sun 10s linear infinite;
+}
+
+@keyframes sun {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.cloud,
+.cloud2 {
+  position: absolute;
+  margin: 0;
+  animation: cloud-h-movement 4s ease-in-out infinite,
+    cloud-v-movement 900ms ease-in-out infinite alternate,
+    cloud-scale-movement 900ms ease-in-out infinite alternate;
+}
+
+.cloud1,
+.cloud3 {
+  position: absolute;
+  margin: 0;
+  animation: cloud-h-movement 4s ease-in-out infinite,
+    cloud-v-movement 900ms ease-in-out infinite alternate-reverse,
+    cloud-scale-movement 900ms ease-in-out infinite alternate;
+}
+
+.cloud1 {
+  animation-delay: 1s;
+  left: -100px;
+}
+
+.cloud2 {
+  animation-delay: 2s;
+  left: -100px;
+}
+
+.cloud3 {
+  animation-delay: 3s;
+  left: -100px;
+}
+
+@keyframes cloud-h-movement {
+  0% {
+    left: -100px;
+  }
+  100% {
+    left: 350px;
+  }
+}
+
+@keyframes cloud-v-movement {
+  0% {
+    margin-top: 50px;
+  }
+  100% {
+    margin-top: 100px;
+  }
+}
+
+@keyframes cloud-scale-movement {
+  0% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(0.9);
+  }
+}
